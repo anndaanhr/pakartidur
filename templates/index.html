@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pakar Diagnosa Pola Tidur</title>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    
+    <!-- Hiasan Latar Tema Malam -->
+    <div class="bg-shape shape-purple"></div>
+    <div class="bg-shape shape-blue"></div>
+    <div class="stars-overlay"></div>
+
+    <main class="app-container">
+        
+        <!-- Navigasi / Header -->
+        <header class="top-nav">
+            <div class="logo">
+                <span class="moon-icon">🌙</span> PakarTidur
+            </div>
+        </header>
+
+        <!-- Halaman Utama (Hero) -->
+        <section id="view-hero" class="view active fade-in">
+            <div class="hero-content">
+                <h1 class="font-outfit">Pahami Kualitas<br>Tidur Anda</h1>
+                <p class="subtitle font-inter">
+                    Sebuah Sistem Pakar Cerdas berbasis Pengetahuan Medis (Metode *Forward Chaining*) untuk membantu Anda mendiagnosa gangguan pola tidur. Cukup jawab serangkaian fakta terkait pengalaman istirahat dan keluhan Anda.
+                </p>
+                
+                <div class="glass-btn-container">
+                    <button id="btn-start" class="btn-primary font-outfit">Mulai Diagnosa</button>
+                </div>
+            </div>
+            
+            <!-- Graphic Element: Beautiful Crescent Moon & Zzz -->
+            <div class="hero-graphic">
+                <div class="crescent-moon"></div>
+                <div class="floating-zzz z1">Z</div>
+                <div class="floating-zzz z2">z</div>
+                <div class="floating-zzz z3">z</div>
+            </div>
+        </section>
+
+
+        <!-- Halaman Kuesioner Interaktif -->
+        <section id="view-question" class="view hidden">
+            <!-- Progress Bar -->
+            <div class="progress-bar-container">
+                <div class="progress-label font-inter">
+                    <span>Pertanyaan</span>
+                    <span id="q-counter">1 / 15</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Question Box Glassmorphism -->
+            <div class="glass-card question-card">
+                <div class="icon-pulse">
+                    <span class="icon-inner">✨</span>
+                </div>
+                <!-- Dynamic Question Text -->
+                <h2 id="question-text" class="font-outfit question-title">Memuat gejala...</h2>
+
+                <div class="action-buttons">
+                    <button id="btn-yes" class="action-btn yes-btn font-inter">Ya, Benar</button>
+                    <button id="btn-no" class="action-btn no-btn font-inter">Tidak Mengalami</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Halaman Hasil / Diagnosa -->
+        <section id="view-result" class="view hidden">
+            <div class="result-header">
+                <div class="success-icon">✓</div>
+                <h2 class="font-outfit">Diagnosa Selesai</h2>
+                <p class="font-inter">Berdasarkan kompilasi fakta yang Anda sampaikan, mesin inferensi menarik kesimpulan berikut:</p>
+            </div>
+
+            <div id="diagnoses-container" class="diagnoses-container">
+                <!-- DIAGNOSIS CARDS WILL BE INJECTED HERE VIA JS -->
+            </div>
+
+            <div class="result-actions">
+                <button id="btn-restart" class="btn-secondary font-inter">Konsultasi Ulang</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bottom-footer font-inter">
+        <p>Sistem pakar Diagnosa pola tidur</p>
+    </footer>
+
+    <!-- Main Logic Script -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
